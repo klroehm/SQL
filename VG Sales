@@ -1,0 +1,38 @@
+Finding Trends in Video Game Sales
+
+
+--Find the Top 10 Highest Selling Games Globally
+SELECT Name, Global_Sales
+FROM VG.Sales
+Order By Global_Sales desc
+LIMIT 10
+
+--Best Selling Games by Console
+SELECT Platform, Global_Sales
+FROM VG.Sales
+Order By Global_Sales desc
+LIMIT 10
+
+--Best Selling Genres
+SELECT Genre, Global_Sales
+FROM VG.Sales
+Order By Global_Sales desc
+LIMIT 10
+
+--Highest Selling Year 
+SELECT Year_of_Release, Global_Sales
+FROM VG.Sales
+Order By Global_Sales desc
+LIMIT 10
+
+--Comparing Top Sales in Different Regions
+SELECT NA_Sales, EU_Sales, Other_Sales, JP_Sales, Name
+FROM VG.Sales
+Order By Global_Sales desc
+LIMIT 10
+
+--Number of Games in Each Genre
+SELECT Genre, Count(Genre) as Num_of_Genre
+FROM VG.Sales
+WHERE Genre is not null
+GROUP BY Genre
